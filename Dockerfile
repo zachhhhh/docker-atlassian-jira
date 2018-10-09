@@ -56,3 +56,5 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Run Atlassian JIRA as a foreground process by default.
 CMD ["/opt/atlassian/jira/bin/start-jira.sh", "-fg"]
+
+COPY project-dump_10.9.2018_ALL.zip /var/atlassian/application-data/jira/import/projectconfigurator/project-dump_10.9.2018_ALL.zip
