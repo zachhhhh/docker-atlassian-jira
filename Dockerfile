@@ -1,5 +1,10 @@
 FROM openjdk:8-alpine
 
+ARG user=jira
+ARG group=jira
+ARG uid=1005
+ARG gid=1005
+
 # Configuration variables.
 ENV JIRA_HOME     /var/atlassian/jira
 ENV JIRA_INSTALL  /opt/atlassian/jira
@@ -33,7 +38,7 @@ RUN set -x \
 # Use the default unprivileged account. This could be considered bad practice
 # on systems where multiple processes end up being executed by 'daemon' but
 # here we only ever run one process anyway.
-USER daemon:daemon
+USER jira:jira
 
 # Expose default HTTP connector port.
 EXPOSE 8080
